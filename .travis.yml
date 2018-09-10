@@ -1,0 +1,17 @@
+language: php
+
+php:
+    - 7.2
+
+install:
+    - composer install
+
+script:
+    - php vendor/phpunit/phpunit/phpunit tests
+
+notifications:
+    email:
+        recipients:
+            - bbbara10@gmail.com
+        on_success: never
+        on_failure: always

@@ -1,0 +1,27 @@
+{
+	"name": "dmytroborysovskiy/php-objects-patterns-and-practice",
+	"description": "Practice repository while reading Matt Zandstra \"PHP Objects, Patterns and Practice\"",
+	"require-dev": {
+		"phpunit/phpunit": "^7.3"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dmytro Borysovskyi",
+			"email": "bbbara10@gmail.com"
+		}
+	],
+	"require": {
+		"php": "^7.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"Acme\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	}
+}

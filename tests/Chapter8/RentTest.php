@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests;
+namespace Tests\Chapter8;
 
 use Acme\Chapter8\Composition\{
     DailyRentStrategy,

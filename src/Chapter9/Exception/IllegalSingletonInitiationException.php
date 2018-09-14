@@ -5,8 +5,8 @@ namespace Acme\Chapter9\Exception;
 
 class IllegalSingletonInitiationException extends \Exception
 {
-    public function __construct(string $FQCN = \Singleton::class)
+    public function __construct($message = 'You cannot initialize class', string $FQCN = \Singleton::class)
     {
-        parent::__construct('You cannot initialize class '.$FQCN, 0, null);
+        parent::__construct("{$message} {$FQCN}", 0, null);
     }
 }

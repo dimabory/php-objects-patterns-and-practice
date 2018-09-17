@@ -3,11 +3,19 @@ language: php
 php:
     - 7.2
 
-install:
-    - composer install
+cache:
+    directories:
+        - $HOME/.composer/cache
 
-script:
-    - php vendor/phpunit/phpunit/phpunit tests
+install:
+    - composer update --prefer-dist
+
+jobs:
+    include:
+        - stage: test
+          script: composer run phpunit
+        - stage: static-analysis
+          script: composer run phpstan:analyze
 
 notifications:
     email:

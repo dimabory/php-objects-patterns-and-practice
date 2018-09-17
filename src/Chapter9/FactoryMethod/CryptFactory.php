@@ -7,6 +7,6 @@ class CryptFactory extends HashFactoryMethod
 {
     protected function generate($type): HashInterface
     {
-        return !self::STRONG ? new Crypt() : new Crypt(substr(base64_encode(random_bytes(17)), 0, 22));
+        return $type !== self::STRONG ? new Crypt() : new Crypt(substr(base64_encode(random_bytes(17)), 0, 22));
     }
 }

@@ -87,7 +87,7 @@ class Repository implements Cloneable
     public function __clone()
     {
         if ($this->isPrivate()) {
-            throw new IllegalCloneCallException('You cannot clone private repository '.$this->getName());
+            throw new IllegalCloneCallException(self::class, 'You cannot clone private repository '.$this->getName());
         }
 
         $this->owner = null;

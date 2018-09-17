@@ -21,13 +21,22 @@ class PasswordHash implements HashInterface
 
     public function encode(string $str): string
     {
-        return self::PWD_ARGON2I === $this->algo
-            ? $this->argon2iPolyfill($str)
-            : password_hash(
+        $hash = null;
+        if (self::PWD_ARGON2I === $this->algo) {
+            $hash = $this->argon2iPolyfill($str);
+        } else {
+            $hash = password_hash(
                 $str,
                 $this->algo,
                 $this->options
             );
+        }
+
+        if (!$hash) {
+            throw new \Exception('Cannot generate hash');
+        }
+
+        return $hash;
     }
 
     public function argon2iPolyfill(string $str): string

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Acme\Chapter9\Prototype;
 
+use Acme\Chapter9\Exception\RepositoryNotFoundException;
+
 class Account
 {
     private $username;
@@ -10,17 +12,17 @@ class Account
     /**
      * @var Repository[]
      */
-    private $repositories;
+    private $repositories = [];
 
     public function __construct(string $username)
     {
         $this->username = $username;
     }
 
-    public function addRepository(Repository $repository): self
+    public function addRepository(Repository $repository)
     {
-        if ($this->getRepository($repository->getName())) {
-            return $this;
+        if ($this->hasRepository($repository->getName())) {
+            return;
         }
 
         if (null === $repository->getOwner()) {
@@ -33,13 +35,20 @@ class Account
         }
 
         $this->repositories [$repository->getName()] = $fork ?? $repository;
-
-        return $this;
     }
 
-    public function getRepository(string $name): ?Repository
+    public function getRepository(string $name): Repository
     {
-        return $this->repositories[$name] ?? null;
+        if (!$this->hasRepository($name)) {
+            throw new RepositoryNotFoundException("{$name} not found");
+        }
+
+        return $this->repositories[$name];
+    }
+
+    public function hasRepository(string $name): bool
+    {
+        return array_key_exists($name, $this->repositories);
     }
 
     public function getUsername(): string

@@ -28,6 +28,11 @@
 	},
 	"scripts": {
 		"phpunit": "php vendor/phpunit/phpunit/phpunit tests",
-		"phpstan:analyze": "php vendor/bin/phpstan analyze -l 7 tests src"
+		"phpstan:analyze": [
+			"@phpstan:analyze:src",
+			"@phpstan:analyze:tests"
+		],
+		"phpstan:analyze:src": "php vendor/bin/phpstan analyze -l 7 src",
+		"phpstan:analyze:tests": "php vendor/bin/phpstan analyze -l 7 tests"
 	}
 }

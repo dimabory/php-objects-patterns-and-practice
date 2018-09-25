@@ -1,0 +1,10 @@
+class ClassWithAttribute
+{
+
+    public $foo;
+
+    protected $bar = 1;
+
+    private static $baz = 'string';
+
+}

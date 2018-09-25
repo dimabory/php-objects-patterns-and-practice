@@ -1,0 +1,48 @@
+namespace A\B\C\D;
+
+abstract class ClassWithMethod
+{
+
+    public function foo()
+    {
+        // TODO: Implement foo() method.
+    }
+
+    public static function staticFoo()
+    {
+        // TODO: Implement staticFoo() method.
+    }
+
+    protected function bar($a)
+    {
+        // TODO: Implement bar() method.
+    }
+
+    private function baz(float $a, int $b, string $c, bool $d, array $e): int
+    {
+        // TODO: Implement baz() method.
+    }
+
+    public function iterate(iterable $iterator)
+    {
+        // TODO: Implement iterate() method.
+    }
+
+    public function call(callable $cb): string
+    {
+        // TODO: Implement call() method.
+    }
+
+    public function asBool(int $flag = 1): bool
+    {
+        // TODO: Implement asBool() method.
+    }
+
+    final protected function finalMethod(object $obj): \stdClass
+    {
+        // TODO: Implement finalMethod() method.
+    }
+
+    abstract public function abstractMethod(\Acme\Chapter10\Composite\ClassComposite $composite);
+
+}

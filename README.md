@@ -23,3 +23,5 @@ Composition over inheritance (or composite reuse principle)
 ![prototype](resources/prototype.png?raw=true)
 
 ### Chapter 10
+##### Composite
+![composite](resources/composite.png?raw=true)

@@ -13,9 +13,9 @@ install:
 jobs:
     include:
         - stage: test
-          script: composer run phpunit
+          script: composer test
         - stage: static-analysis
-          script: composer run phpstan:analyze
+          script: composer phpstan:analyze
 
 notifications:
     email:

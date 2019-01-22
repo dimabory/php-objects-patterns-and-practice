@@ -11,9 +11,10 @@ class DecoratorTest extends TestCase
 {
     public function testOneLevelDecorating()
     {
-        $headers = ($cacheControl = new CacheControlDecorator(
-            $userAgent = new UserAgentHeader('Mozilla'), 'max-age=0'
-        ))();
+        $userAgent    = new UserAgentHeader('Mozilla');
+        $cacheControl = new CacheControlDecorator($userAgent, 'max-age=0');
+
+        $headers      = $cacheControl();
 
         $this->assertArrayHasKey($userAgent->fieldname(), $headers);
         $this->assertArrayHasKey($cacheControl->fieldname(), $headers);
@@ -21,11 +22,11 @@ class DecoratorTest extends TestCase
 
     public function testTwoLevelsDecorating()
     {
-        $headers = ($cacheControl = new CacheControlDecorator(
-            $acceptEncoding = new AcceptEncodingDecorator(
-                $userAgent = new UserAgentHeader('Mozilla'), 'deflate'
-            ), 'max-age=0'
-        ))();
+        $userAgent      = new UserAgentHeader('Mozilla');
+        $acceptEncoding = new AcceptEncodingDecorator($userAgent, 'deflate');
+        $cacheControl   = new CacheControlDecorator($acceptEncoding, 'max-age=0');
+
+        $headers = $cacheControl();
 
         $this->assertArrayHasKey($userAgent->fieldname(), $headers);
         $this->assertArrayHasKey($cacheControl->fieldname(), $headers);

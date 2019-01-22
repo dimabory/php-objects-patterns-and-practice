@@ -23,7 +23,7 @@ final class BinaryFile extends FileReader
         $content = array_reduce(
             $buffer,
             function ($content, $char) {
-                $content .= \chr(hexdec($char));
+                $content .= \chr((int)hexdec($char));
 
                 return $content;
             }

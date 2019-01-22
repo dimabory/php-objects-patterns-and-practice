@@ -32,3 +32,17 @@ Composition over inheritance (or composite reuse principle)
 
 ##### Facade
 ![facade](resources/facade.png?raw=true)
+
+### Chapter 11
+##### Command
+![command](resources/command.png?raw=true)
+
+##### Obseгver
+![observer](resources/observer.png?raw=true)
+
+##### Strategy
+![strategy](resources/strategy.png?raw=true)
+
+##### Visitor
+![visitor](resources/visitor.png?raw=true)
+

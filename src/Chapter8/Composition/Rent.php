@@ -39,9 +39,9 @@ abstract class Rent
         return $this->price;
     }
 
-    private function assertIsPositiveNumber($value, string $message)
+    private function assertIsPositiveNumber($value, string $message): void
     {
-        if ((float)$value <= 0) {
+        if ($value <= 0) {
             throw new \InvalidArgumentException($message);
         }
     }

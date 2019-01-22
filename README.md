@@ -29,3 +29,6 @@ Composition over inheritance (or composite reuse principle)
 
 ##### Decorator
 ![decorator](resources/decorator.png?raw=true)
+
+##### Facade
+![facade](resources/facade.png?raw=true)
